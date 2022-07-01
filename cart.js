@@ -7,7 +7,6 @@
     creating customer objects.  
 */
 
-
 //////////////////PROBLEM 1////////////////////
 /*  
     Below is a cart array that has food objects
@@ -19,24 +18,24 @@
 */
 
 const cart = [
-    {
-        name: 'pizza', 
-        price: 9.99
-    }, 
-    {
-        name: 'pasta', 
-        price: 8.99
-    }, 
-    {
-        name: 'salad', 
-        price: 7.99
-    }
-]
+  {
+    name: "pizza",
+    price: 9.99,
+  },
+  {
+    name: "pasta",
+    price: 8.99,
+  },
+  {
+    name: "salad",
+    price: 7.99,
+  },
+];
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
-
+const summedPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
+//console.log(summedPrice)
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -54,8 +53,9 @@ const cart = [
 */
 
 //CODE HERE
-
-
+calcFinalPrice = (cartTotal, couponValue, tax) => {
+  total = cartTotal * (1 + tax) - couponValue;
+};
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -78,8 +78,11 @@ const cart = [
 */
 
 /*
-    TEXT ANSWER HERE
-
+  name ; string
+  location if its delivery : string
+  phone number: string (to avoid problems - or ())
+  ifPaid : boolean (for the delivery person)
+  foodGet :string ('delivery','pick-up','dine-in")
 */
 
 /*
@@ -88,3 +91,10 @@ const cart = [
 */
 
 //CODE HERE
+let customer = {
+  name: "Jacob",
+  address: "345 bing bong blvd.",
+  phoneNumber: "8018888798",
+  ifPaid: true,
+  foodGet: "delivery",
+};
