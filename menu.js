@@ -32,7 +32,14 @@
 
 //CODE HERE
 
-
+let pizza = {
+    name : 'Pepperoni Pizza',
+    price : 5,
+    category : 'entree',
+    popularity : 1,
+    rating : 4,
+    tags : ['gluten-free','large']
+}
 
 //////////////////PROBLEM 2////////////////////
 /* 
@@ -43,7 +50,7 @@
 */
 
 //CODE HERE
-
+console.log(pizza.popularity)
 
 /*
     Second, log the second tag in your pizza's
@@ -53,7 +60,7 @@
 */
 
 //CODE HERE
-
+console.log(pizza.tags[1])
 
 /*
     Third, destructure the price off of the
@@ -63,7 +70,8 @@
 */
 
 //CODE HERE
-
+let {price} = pizza
+console.log(price)
 
 /*
     Fourth, and last, destructure the category
@@ -73,7 +81,8 @@
 */
 
 //CODE HERE
-
+let {category: categorypizza}= pizza
+console.log(categorypizza)
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -88,7 +97,42 @@
 */
 
 //CODE HERE
-
+let foodArray = [
+   {name : 'Brownie',
+    price : 9,
+    category : 'dessert',
+    popularity : 4,
+    rating : 4,
+    tags : ['sugar','chocolate']},  
+    
+    {name : 'Cake',
+    price : 14,
+    category : 'dessert',
+    popularity : 3,
+    rating : 5,
+    tags : ['sugar','vanilla','peanut-free']}, 
+    
+    {name : 'Spaghetti',
+    price : 9,
+    category : 'entree',
+    popularity : 4,
+    rating : 3,
+    tags : ['meat','peanut-free']}, 
+    
+    {name : 'Alfredo',
+    price : 12,
+    category : 'Entree',
+    popularity : 6,
+    rating : 4,
+    tags : ['chocolate','peanut-free']},
+    
+    {name : 'sandwich',
+    price : 3,
+    category : 'entree',
+    popularity : 7,
+    rating : 2,
+    tags : ['bread','peanut-free']}
+]
 
 
 //////////////////PROBLEM 4////////////////////
@@ -105,8 +149,8 @@
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
-
+ const filteredFood = foodArray.filter(element => (element.tags.includes('sugar')))
+console.log(filteredFood)
 
 
 //////////////////PROBLEM 5////////////////////
@@ -150,6 +194,16 @@
 
 //CODE HERE
 
+filterByProperty = (property,number,type) => {
+    (property=="price"&& type =="above")? filteredArr = foodArray.filter(element => (element.price>number)):
+    (property=="price"&& type =="below") ?  filteredArr= foodArray.filter(element => (element.price<number)):
+    (property=="popularity"&& type =="above")? filteredArr = foodArray.filter(element => (element.popularity>number)):
+    (property=="popularity"&& type =="below") ?  filteredArr= foodArray.filter(element => (element.popularity<number)): 
+    (property=="rating"&& type =="above")?   filteredArr = foodArray.filter(element => (element.rating>number)):
+    (property=="rating"&& type =="below") ?  filteredArr= foodArray.filter(element => (element.rating<number)):
+    filteredArr = ['ERROR invalid input'];
+     return filteredArr} 
+
 
 /*
     Invoke the `filterByProperty` function passing
@@ -159,3 +213,4 @@
 */
 
 //CODE HERE
+console.log(filterByProperty('rating',3,'above'))
