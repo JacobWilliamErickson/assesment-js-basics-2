@@ -20,8 +20,16 @@
 */
 
 //CODE HERE
+class Employee {
+  constructor(name, shifts) {
+    this.name = name;
+    this.shifts = shifts;
+  }
 
-
+  getSchedule() {
+    console.log(`${this.name} works on ${this.shifts}`);
+  }
+}
 
 /*
     Create a new instance of your class.
@@ -34,14 +42,14 @@
 */
 
 //CODE HERE
-
+let empOne = new Employee("Jess", "weekday mornings, weekday afternoons");
 /*
     Call the `getSchedule` method on the
     `empOne` object.
 */
 
 //CODE HERE
-
+empOne.getSchedule();
 
 /*
     Make a copy of the empOne object
@@ -56,11 +64,12 @@
 */
 
 //CODE HERE
-
-
+let empTwo = { ...empOne };
+empTwo.name = "Nick";
+// console.log(empTwo)
 
 //////////////////PROBLEM 2////////////////////
-/*  
+/*  weekday mornings, weekday afternoons
     Write a class called Manager that *extends* 
     the Employee class. In the constructor, 
     make sure you require all of the parameters 
@@ -83,8 +92,18 @@
 */
 
 //CODE HERE
-
-
+class Manager extends Employee {
+  constructor(name, shifts, employees) {
+    super(name, shifts);
+    this.employees = employees;
+  }
+  getEmployees() {
+    console.log(`${this.name} manages ${this.employees}`);
+  }
+  addEmployee(emp) {
+    this.employees.push(emp);
+  }
+}
 
 /*
     Create a new instance of your class.
@@ -98,23 +117,25 @@
 */
 
 //CODE HERE
-
-
+let manager = new Manager("Winston", "weekday mornings, weekday afternoons", [
+  "Cece",
+  "Schmidt",
+]);
 /*
     Call the `getEmployees` method on the
     `manager` object.  
 */
 
 //CODE HERE
-
+manager.getEmployees();
 /*
     Call the `addEmployee` method on the 
     `manager` object passing in the string 
     'Coach' or whatever name you'd like.
 */
 
-//CODE HERE 
-
+//CODE HERE
+manager.addEmployee("Coach");
 /*
     Call the `getEmployees` method on the
     `manager` object again to confirm 
@@ -122,3 +143,4 @@
 */
 
 //CODE HERE
+manager.getEmployees();
